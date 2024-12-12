@@ -1,0 +1,78 @@
+Код на PlantUML
+
+Задание 1:
+
+@startuml
+' Определение объектов
+object Client1 {
+  имя: Иван
+  статус заказа: В процессе оформления
+}
+
+object Employee1 {
+  имя: Анна
+  роль: Оператор
+}
+
+object Order1 {
+  ID: 101
+  статус: Создан
+}
+
+object System1 {
+  статус: В работе
+}
+
+object ClientDB1 {
+  Клиент найден: true
+}
+
+object OrderDB1 {
+  Заказ сохранен: false
+}
+
+' Взаимосвязи между объектами
+Client1 -- Order1 : Создает заказ
+Employee1 -- Order1 : Обрабатывает заказ
+Employee1 -- Client1 : Взаимодействует с клиентом
+Employee1 -- System1 : Использует для проверки данных
+System1 -- ClientDB1 : Проверяет клиента
+System1 -- OrderDB1 : Сохраняет заказ
+
+@enduml
+
+Задание 2:
+
+@startuml
+' Определение объектов
+object Client {
+  имя: Иван
+  статус: Бронирует тур
+}
+
+object TravelAgent {
+  имя: Мария
+  роль: Турагент
+}
+
+object TourOperator {
+  имя: Алексей
+  роль: Туроператор
+}
+
+object Tour {
+  название: Тур по Азии
+  статус: Забронирован
+}
+
+object SalesPrediction {
+  статус: На рассмотрении
+}
+
+' Взаимосвязи между объектами
+Client -- Tour : Бронирует тур
+TravelAgent -- Tour : Оформляет договор
+TourOperator -- Tour : Формирует и добавляет тур
+TourOperator -- SalesPrediction : Прогнозирует продажи
+
+@enduml
